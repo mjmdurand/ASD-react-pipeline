@@ -1,0 +1,39 @@
+name: Test application
+
+on:
+  pull_request:
+    types:
+      - opened
+    branches:
+      - develop
+
+jobs:
+  tests:
+    if:  startsWith(github.head_ref, 'features/')
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+    steps:
+      - name: use repo files
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install packages
+        run: yarn install
+
+      - name: Test app
+        run: yarn test
+
+      - name: Generate coverage report
+        run: yarn test --coverage > coverage.txt
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage
+          path: coverage.txt
