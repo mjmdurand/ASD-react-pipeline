@@ -1,7 +1,7 @@
 #### WARNING
 #### Change token permissions to make it run
 #### on the repo : settings => actions => general => R/W permission in workflow category
-name: Issue assigned
+name: issue assignated
 on:
   issues:
     types:
@@ -16,5 +16,5 @@ jobs:
 
       - name: Create Issue Branch
         run: |
-          git checkout -b support/${{ github.event.issue.id }}-${{ github.event.issue.title }}
-          git push origin support/${{ github.event.issue.id }}-${{ github.event.issue.title }}
+          git checkout -b support/${{ github.event.issue.number }}
+          git push origin support/${{ github.event.issue.number }}
