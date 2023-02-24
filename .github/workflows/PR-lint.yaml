@@ -1,16 +1,15 @@
 name: Conventional Commits
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
-      - develop
+      - features/*
+      - hotfix/*
 
 jobs:
   test_commit_names:
     name: Conventional Commits
-    #if: ${{ startsWith(github.ref, 'features/') || startsWith(github.ref, 'hotfix/') }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: webiny/action-conventional-commits@v1.1.0
+      - name: Check commit name
+        uses: webiny/action-conventional-commits@v1.1.0
