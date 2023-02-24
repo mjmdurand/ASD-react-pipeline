@@ -11,5 +11,5 @@ jobs:
     name: Conventional Commits
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: webiny/action-conventional-commits@v1.1.0
+      - name: Check commit name
+        uses: webiny/action-conventional-commits@v1.1.0
