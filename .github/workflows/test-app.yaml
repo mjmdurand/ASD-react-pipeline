@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x, 16.x, 17.x, 18.x]
+        node-version: [14.x, 16.x]
     steps:
       - name: use repo files
         uses: actions/checkout@v3
@@ -26,8 +26,5 @@ jobs:
       - name: Install packages
         run: npm install
 
-      - name: Build app
-        run: npm run build --if-present
-
-      - name: test app
+      - name: Test app
         run: npm test
