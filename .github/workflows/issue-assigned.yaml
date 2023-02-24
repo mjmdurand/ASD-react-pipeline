@@ -13,7 +13,8 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v3
-
+        with:
+          ref: develop
       - name: Create Issue Branch
         run: |
           git checkout -b support/${{ github.event.issue.number }}
