@@ -16,5 +16,5 @@ jobs:
 
       - name: Create Issue Branch
         run: |
-          git checkout -b support/${{ github.event.issue.title }}
-          git push origin support/${{ github.event.issue.title }}
+          git checkout -b support/${{ github.event.issue.id }}-${{ github.event.issue.title }}
+          git push origin support/${{ github.event.issue.id }}-${{ github.event.issue.title }}
