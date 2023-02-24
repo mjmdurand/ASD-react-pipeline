@@ -9,6 +9,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create Issue Branch
-        run: 
-          - git checkout -b support/${{ ${{ github.event.issue.title }}}}
-          - git push origin support/${{ ${{ github.event.issue.title }} }}
+        run: git checkout -b support/${{ github.event.issue.title }} && git push origin support/${{ github.event.issue.title }}
