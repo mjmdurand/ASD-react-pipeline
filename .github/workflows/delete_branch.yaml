@@ -1,21 +1,23 @@
 #### WARNING
 #### Change token permissions to make it run
 #### on the repo : settings => actions => general => R/W permission in workflow category
-name: issue assigned
+name: delete branch
 on:
-  issues:
+  pull_request:
     types:
-      - assigned
+      - closed
+    branches:
+      - develop
 
 jobs:
-  create_issue_branch:
+  delete_branch:
+    if:  startsWith(github.head_ref, 'features/')
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
         uses: actions/checkout@v3
         with:
           ref: develop
-      - name: Create Issue Branch
+      - name: delete Branch
         run: |
-          git checkout -b support/${{ github.event.issue.number }}
-          git push origin support/${{ github.event.issue.number }}
+          git push origin --delete ${{ github.head_ref }}
