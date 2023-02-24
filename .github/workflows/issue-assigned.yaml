@@ -1,6 +1,8 @@
 #### WARNING
 #### Change token permissions to make it run
 #### on the repo : settings => actions => general => R/W permission in workflow category
+####
+#### Requires to be on default/main branch to been triggered
 name: issue assigned
 on:
   issues:
