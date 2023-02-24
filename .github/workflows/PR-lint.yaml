@@ -9,7 +9,6 @@ on:
 jobs:
   test_commit_names:
     name: Conventional Commits
-    #if: ${{ startsWith(github.ref, 'features/') || startsWith(github.ref, 'hotfix/') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
