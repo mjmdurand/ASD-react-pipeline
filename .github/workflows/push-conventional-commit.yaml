@@ -1,10 +1,10 @@
 name: Conventional Commits
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
-      - develop
+      - features/*
+      - hotfix/*
 
 jobs:
   test_commit_names:
