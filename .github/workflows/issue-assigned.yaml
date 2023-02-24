@@ -1,6 +1,7 @@
 #### WARNING
 #### Change token permissions to make it run
 #### on the repo : settings => actions => general => R/W permission in workflow category
+name: Issue assigned
 on:
   issues:
     types:
